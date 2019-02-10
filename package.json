@@ -1,0 +1,19 @@
+{
+  "name": "rscli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "rs-cli": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "debug": "^4.1.1",
+    "esprima": "^4.0.1"
+  }
+}
