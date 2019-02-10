@@ -1,13 +1,13 @@
 {
   "name": "@grabantot/react-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "react-cli": "./index.js"
+    "react-cli": "./bin/react-cli.js"
   },
   "author": "",
   "license": "ISC",

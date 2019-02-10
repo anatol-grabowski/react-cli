@@ -3,8 +3,8 @@
 const commander = require('commander')
 const path = require('path')
 const fs = require('fs')
-const packageJson = require('./package.json')
-const { run } = require('./lib/react-cli')
+const packageJson = require('../package.json')
+const { run } = require('../lib/tools')
 
 const program = commander
   .version(packageJson.version)
@@ -14,12 +14,12 @@ const program = commander
   // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
   .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-S, --story', 'create storybook story for the component')
-  .arguments('<path>')
+  .arguments('<path/Component>')
 
 const componentExt = '.js'
 const styleModuleExt = '.module.scss'
 const indexName = 'index.js'
-const samplesDirPath = path.join(__dirname, 'samples')
+const samplesDirPath = path.join(__dirname, '..', 'templates')
 const samplesPathes = {
   func: 'FunctionalComponent.js',
   class: 'ClassComponent.js',
@@ -87,5 +87,5 @@ function getOptions(argv) {
 
 const opts = getOptions(process.argv)
 if (!opts) process.exit(1)
-console.log(opts)
+// console.log(opts)
 run(opts)
