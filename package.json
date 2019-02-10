@@ -1,5 +1,5 @@
 {
-  "name": "rscli",
+  "name": "@grabantot/react-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "rs-cli": "./index.js"
+    "react-cli": "./index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +15,9 @@
     "commander": "^2.19.0",
     "debug": "^4.1.1",
     "esprima": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grabantot/react-cli.git"
   }
 }
