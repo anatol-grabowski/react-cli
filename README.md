@@ -21,11 +21,17 @@ Examples:
 ## Todo
 Support for custom templates and settings (files extensions, code style).
 
+Commands:
+- mv - move/rename the component and related files, fix imports in the project
+
 Options:
 ```
   -i, --index       add component export to index.js in its directory
   -p, --prop-types  find props used in render and add propTypes for them
+  -r, --redux       connect the component to the redux store
+  -t, --test        add tests for the component
   -S, --story       create storybook story for the component
+  -P, --pure        make the component pure (use recompose's pure for functional components)
   --semi            add semicolons where needed
 ```
 
@@ -58,3 +64,4 @@ Less related:
 - [reactit](https://www.npmjs.com/package/reactit)
 - [reactclinext](https://www.npmjs.com/package/reactclinext)
 - [reactjs-generator-cli](https://www.npmjs.com/package/reactjs-generator-cli)
+- [create-react-component-with-no-config](https://www.npmjs.com/package/create-react-component-with-no-config)
