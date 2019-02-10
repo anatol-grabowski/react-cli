@@ -1,6 +1,6 @@
 {
   "name": "@grabantot/react-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/grabantot/react-cli.git"
-  }
+  },
+  "keywords": [
+    "react",
+    "component",
+    "cli",
+    "boilerplate",
+    "view",
+    "container"
+  ]
 }

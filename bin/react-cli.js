@@ -8,13 +8,19 @@ const { run } = require('../lib/tools')
 
 const program = commander
   .version(packageJson.version)
-  .option('-f, --func', 'create/convert to functional component')
-  .option('-c, --class', 'create/convert to class component')
-  .option('-s, --style', 'create style module and add to component')
+  .option('-f, --func', 'create functional component or convert the existing class component to functional')
+  .option('-c, --class', 'create class component or convert the existsing functional component to class')
+  .option('-s, --style', 'create style module and add import to the component')
   // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
   .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-S, --story', 'create storybook story for the component')
   .arguments('<path/Component>')
+
+program.on('--help', () => {
+  console.log('')
+  console.log('Examples:')
+  console.log('  $ react-cli -fs src/components/views/Primitives/Button')
+})
 
 const componentExt = '.js'
 const styleModuleExt = '.module.scss'
