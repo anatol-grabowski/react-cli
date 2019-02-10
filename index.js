@@ -11,6 +11,7 @@ const program = commander
   .option('-f, --func', 'create/convert to functional component')
   .option('-c, --class', 'create/convert to class component')
   .option('-s, --style', 'create style module and add to component')
+  // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
   .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-S, --story', 'create storybook story for the component')
   .arguments('<path>')
