@@ -48,6 +48,7 @@ Contributions of any kind are welcome: add features, add tests, refactor the cod
 - [rcli-tools](https://www.npmjs.com/package/rcli-tools) - makes assumptions about the project structure
 - [hileix-rcli](https://www.npmjs.com/package/hileix-rcli) - seems like it can create components
 - [reactjs-cli](https://www.npmjs.com/package/reactjs-cli) - can create component
+- [create-reactjs-component](https://www.npmjs.com/package/create-reactjs-component)
 
 Less related:
 - [create-react-app](https://www.npmjs.com/package/create-react-app) - Create React App
