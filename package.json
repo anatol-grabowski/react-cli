@@ -1,8 +1,8 @@
 {
   "name": "@grabantot/react-cli",
   "preferGlobal": true,
-  "version": "1.0.5",
-  "description": "Automates components management routine tasks",
+  "version": "1.0.6",
+  "description": "Automate components management routine",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

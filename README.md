@@ -5,7 +5,9 @@
 
 ## Usage
 ```
-Usage: react-cli [options] <path/Component>
+Usage: react-cli [options] [command] <Component>
+
+Manage react components and related files
 
 Options:
   -V, --version  output the version number
@@ -14,13 +16,20 @@ Options:
   -s, --style    create style module and add import to the component
   -h, --help     output usage information
 
+Commands:
+  config <path>  set directory for templates and config file; will be filled with defaults if empty
+The app stores its cofiguration at 'C:\Users\tot\AppData\Roaming\react-cli\config.json'.
+
 Examples:
   $ react-cli -fs src/components/views/Primitives/Button
+  $ react-cli config path/to/empty/dir/to/put/react-cli-config
 ```
 
 ## Todo
+Per project/per directory configs.
+Semicolons option in the config.
+
 Commands:
-- config - set options and templates
 - mv - move/rename the component and related files, fix imports in the project
 
 Options:
@@ -28,10 +37,9 @@ Options:
   -i, --index       add component export to index.js in its directory
   -p, --prop-types  find props used in render and add propTypes for them
   -r, --redux       connect the component to the redux store
-  -t, --test        add tests for the component
   -S, --story       create storybook story for the component
   -P, --pure        make the component pure (use recompose's pure for functional components)
-  --semi            add semicolons where needed
+  -t, --test        add tests for the component
 ```
 
 ## Assumptions

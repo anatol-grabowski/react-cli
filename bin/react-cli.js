@@ -29,8 +29,8 @@ program
   .command('config <path>') // if description is passed with the command then it is added to _execs
   .description('set directory for templates and config file; will be filled with defaults if empty')
   // .option('--copy', `copy specified config directory to '${configPath}'`)
-  .action((path, cmd) => {
-    const configDirectory = path
+  .action((dirpath, cmd) => {
+    const configDirectory = path.resolve(dirpath)
     writeConfig({ configDirectory }, configPath)
   })
 
@@ -39,25 +39,8 @@ program.on('--help', () => {
   console.log('')
   console.log('Examples:')
   console.log('  $ react-cli -fs src/components/views/Primitives/Button')
+  console.log('  $ react-cli config path/to/empty/dir/to/put/react-cli-config')
 })
-
-
-const componentExt = '.js'
-const styleModuleExt = '.module.scss'
-const indexName = 'index.js'
-const samplesDirPath = path.join(__dirname, '..', 'templates')
-const samplesPathes = {
-  func: 'FunctionalComponent.js',
-  class: 'ClassComponent.js',
-  style: 'Styles.module.scss',
-  index: 'index.js',
-}
-const samples = {
-  functionalComponentSample: fs.readFileSync(path.join(samplesDirPath, samplesPathes.func)).toString(),
-  classComponentSample: fs.readFileSync(path.join(samplesDirPath, samplesPathes.class)).toString(),
-  styleModuleSample: fs.readFileSync(path.join(samplesDirPath, samplesPathes.style)).toString(),
-  indexSample: fs.readFileSync(path.join(samplesDirPath, samplesPathes.index)).toString(),
-}
 
 function validateName(opts) {
   const { doCreateComponent, name } = opts
@@ -76,13 +59,18 @@ function getOptions(options) {
     console.error('--func and --class options are mutually exclusive')
     return
   }
-  // const configOptions = readOptions(configPath)
-  // return
+  const configOptions = readOptions(configPath)
+  const {
+    componentExtension,
+    styleModuleExtension,
+    ...samples
+  } = configOptions
+  const indexName = 'index.js'
   const filepath = options.args[0]
   const dirname = path.dirname(filepath)
   const name = path.basename(filepath)
-  const componentPath = path.join(dirname, name + componentExt)
-  const styleModulePath = path.join(dirname, name + styleModuleExt)
+  const componentPath = path.join(dirname, name + componentExtension)
+  const styleModulePath = path.join(dirname, name + styleModuleExtension)
   const indexPath = path.join(dirname, indexName)
   const doesComponentExist = fs.existsSync(componentPath)
   const doesStyleModuleExist = fs.existsSync(styleModulePath)
