@@ -19,9 +19,8 @@ Examples:
 ```
 
 ## Todo
-Support for custom templates and settings (files extensions, code style).
-
 Commands:
+- config - set options and templates
 - mv - move/rename the component and related files, fix imports in the project
 
 Options:
@@ -53,8 +52,10 @@ Contributions of any kind are welcome: add features, add tests, refactor the cod
 - [rcli](https://www.npmjs.com/package/rcli) - too complicated
 - [rcli-tools](https://www.npmjs.com/package/rcli-tools) - makes assumptions about the project structure
 - [hileix-rcli](https://www.npmjs.com/package/hileix-rcli) - seems like it can create components
-- [reactjs-cli](https://www.npmjs.com/package/reactjs-cli) - can create component
+- [reactjs-cli](https://www.npmjs.com/package/reactjs-cli) - can create components
 - [create-reactjs-component](https://www.npmjs.com/package/create-reactjs-component)
+- [react.cli](https://www.npmjs.com/package/react.cli) - for React-Redux-Boilerplate
+- [basic-react-cli](https://www.npmjs.com/package/basic-react-cli)
 
 Less related:
 - [create-react-app](https://www.npmjs.com/package/create-react-app) - Create React App
@@ -65,3 +66,5 @@ Less related:
 - [reactclinext](https://www.npmjs.com/package/reactclinext)
 - [reactjs-generator-cli](https://www.npmjs.com/package/reactjs-generator-cli)
 - [create-react-component-with-no-config](https://www.npmjs.com/package/create-react-component-with-no-config)
+- [fz-react-cli](https://www.npmjs.com/package/fz-react-cli)
+- [create-react-cli](https://www.npmjs.com/package/create-react-cli)

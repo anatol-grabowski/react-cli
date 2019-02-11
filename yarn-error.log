@@ -1,0 +1,58 @@
+Arguments: 
+  D:\_tot\_4_PORTABLE\_4_PROGRAMMING\nodejs\node.exe D:\_tot\_4_PORTABLE\_4_PROGRAMMING\nodejs\node_modules\yarn\bin\yarn.js add platform-folders
+
+PATH: 
+  D:\_tot\_4_PORTABLE\_9_OTHER\ffmpeg-20190204-075fd5b-win64-static\bin\;D:\_tot\_4_PORTABLE\_9_OTHER\Bento4-SDK-1-5-1-628.x86-microsoft-win32-vs2010\bin\;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\Redis-x64-3.2.100;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\nginx-1.12.1;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\qpdf-5.1.2\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\MongoDB-3.4.4_2008R2Plus_SSL_(64bit)\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\mysql-5.7.19-win32\bin;c:\Program Files (x86)\Microsoft Visual C++ Build Tools;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages;C:\Program Files (x86)\MSBuild\14.0\Bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\code2flow\;D:\_tot\_4_PORTABLE\_9_OTHER\graphviz-2.38\bin\;e:\_tot\_4_PORTABLE\_5_NETWORKING\aircrack-ng\bin\64bit;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\vBinDiff-3.0_beta5\;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\esp\xtensa-lx106-elf\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\avr\WinAVR_Portable_V14_1\WinAVR-20100110\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\Python-3.6.1;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\Python-2.7.11;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\android\sdk\build-tools\25.0.2;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\android\sdk\platform-tools;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\android;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\gradle-3.4.1\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\jdk1.8.0_66\jre\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\jdk1.8.0_66\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\Git2.9.0\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\Git2.9.0\cmd;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\Git2.9.0;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\mingw\msys\1.0\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\mingw\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\nodejs\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\nodejs;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\tcc_and_make;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\hub\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\heroku\bin;D:\_tot\_4_PORTABLE\_4_PROGRAMMING\vscode\bin;D:\_tot\_4_PORTABLE\_9_OTHERS\junction;D:\_tot\_4_PORTABLE\_5_NETWORKING\WiresharkPortable;D:\_tot\_4_PORTABLE\_5_NETWORKING\curl;D:\_tot\_4_PORTABLE\_1_CORE_APPS\AutoHotkey;D:\_tot\_4_PORTABLE\_1_CORE_APPS\vim\vim80;D:\_tot\_4_PORTABLE\_2_SCRIPTS\bat\app-specific;D:\_tot\_4_PORTABLE\_2_SCRIPTS\bat\;C:\Program Files (x86)\Intel\TXE Components\iCLS\;C:\Program Files\Intel\TXE Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\TXE Components\DAL\;C:\Program Files (x86)\Intel\TXE Components\DAL\;C:\Program Files\Intel\TXE Components\IPT\;C:\Program Files (x86)\Intel\TXE Components\IPT\;C:\Users\tot\AppData\Local\Microsoft\WindowsApps
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  10.11.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: UNKNOWN: unknown error, scandir 'd:\_tot\_3_PROJECTS\js\react-cli\node_modules\map-age-cleaner'
+
+npm manifest: 
+  {
+    "name": "@grabantot/react-cli",
+    "preferGlobal": true,
+    "version": "1.0.5",
+    "description": "Automates components management routine tasks",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+      "react-cli": "./bin/react-cli.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "commander": "^2.19.0",
+      "debug": "^4.1.1",
+      "esprima": "^4.0.1",
+      "yargs": "^12.0.5"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/grabantot/react-cli.git"
+    },
+    "keywords": [
+      "react",
+      "component",
+      "cli",
+      "boilerplate",
+      "view",
+      "container"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

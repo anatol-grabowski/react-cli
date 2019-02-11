@@ -4,23 +4,43 @@ const commander = require('commander')
 const path = require('path')
 const fs = require('fs')
 const packageJson = require('../package.json')
+const configPath = require('persist-path')('react-cli/config.json')
 const { run } = require('../lib/tools')
+const { readOptions, writeConfig } = require('../lib/config-manager')
 
 const program = commander
   .version(packageJson.version)
+program
+  .description('Manage react components and related files')
   .option('-f, --func', 'create functional component or convert the existing class component to functional')
   .option('-c, --class', 'create class component or convert the existsing functional component to class')
   .option('-s, --style', 'create style module and add import to the component')
+  // .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
-  .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-S, --story', 'create storybook story for the component')
-  .arguments('<path/Component>')
+  .arguments('<Component>')
+  .action((_, cmd) => {
+    const opts = getOptions(cmd)
+    if (!opts) return
+    // console.log(opts)
+    run(opts)
+  })
+program
+  .command('config <path>') // if description is passed with the command then it is added to _execs
+  .description('set directory for templates and config file; will be filled with defaults if empty')
+  // .option('--copy', `copy specified config directory to '${configPath}'`)
+  .action((path, cmd) => {
+    const configDirectory = path
+    writeConfig({ configDirectory }, configPath)
+  })
 
 program.on('--help', () => {
+  console.log(`The app stores its cofiguration at '${configPath}'.`)
   console.log('')
   console.log('Examples:')
   console.log('  $ react-cli -fs src/components/views/Primitives/Button')
 })
+
 
 const componentExt = '.js'
 const styleModuleExt = '.module.scss'
@@ -47,13 +67,17 @@ function validateName(opts) {
   return isValidname
 }
 
-function getOptions(argv) {
-  const options = program.parse(argv)
-  if (options.args.length === 0) program.help()
+function getOptions(options) {
+  if (!options.func && !options.class && !options.style && !options.index && !options.story) {
+    console.error('no options specified')
+    return
+  }
   if (options.func && options.class) {
     console.error('--func and --class options are mutually exclusive')
     return
   }
+  // const configOptions = readOptions(configPath)
+  // return
   const filepath = options.args[0]
   const dirname = path.dirname(filepath)
   const name = path.basename(filepath)
@@ -91,7 +115,6 @@ function getOptions(argv) {
   return opts
 }
 
-const opts = getOptions(process.argv)
-if (!opts) process.exit(1)
-// console.log(opts)
-run(opts)
+
+const parsed = program.parse(process.argv)
+if (parsed.args.length === 0) program.help()

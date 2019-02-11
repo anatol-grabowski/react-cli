@@ -15,7 +15,8 @@
   "dependencies": {
     "commander": "^2.19.0",
     "debug": "^4.1.1",
-    "esprima": "^4.0.1"
+    "esprima": "^4.0.1",
+    "persist-path": "^1.0.2"
   },
   "repository": {
     "type": "git",
