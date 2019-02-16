@@ -5,7 +5,7 @@
 
 ## Usage
 ```
-Usage: react-cli [options] [command] <Component>
+Usage: react-cli [options] [command] <path/Component>
 
 Manage react components and related files
 
@@ -13,15 +13,18 @@ Options:
   -V, --version  output the version number
   -f, --func     create functional component or convert the existing class component to functional
   -c, --class    create class component or convert the existsing functional component to class
-  -s, --style    create style module and add import to the component
+  -s, --style    create style module and add 'import styles' to the component
+  -i, --index    add component export to index.js in its directory
   -h, --help     output usage information
 
 Commands:
   config <path>  set directory for templates and config file; will be filled with defaults if empty
-The app stores its cofiguration at 'C:\Users\tot\AppData\Roaming\react-cli\config.json'.
+
+Config location: '/home/tot/.react-cli/config.json'.
 
 Examples:
   $ react-cli -fs src/components/views/Primitives/Button
+  $ react-cli -csi src/components/views/User/UserCard
   $ react-cli config path/to/empty/dir/to/put/react-cli-config
 ```
 

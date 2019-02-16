@@ -14,11 +14,11 @@ program
   .description('Manage react components and related files')
   .option('-f, --func', 'create functional component or convert the existing class component to functional')
   .option('-c, --class', 'create class component or convert the existsing functional component to class')
-  .option('-s, --style', 'create style module and add import to the component')
+  .option('-s, --style', `create style module and add 'import styles' to the component`)
   .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
   // .option('-S, --story', 'create storybook story for the component')
-  .arguments('<Component>')
+  .arguments('<path/Component>')
   .action((_, cmd) => {
     const opts = getOptions(cmd)
     if (!opts) return
@@ -40,6 +40,7 @@ program.on('--help', () => {
   console.log('')
   console.log('Examples:')
   console.log('  $ react-cli -fs src/components/views/Primitives/Button')
+  console.log('  $ react-cli -csi src/components/views/User/UserCard')
   console.log('  $ react-cli config path/to/empty/dir/to/put/react-cli-config')
 })
 
