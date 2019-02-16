@@ -4,6 +4,8 @@
 `npm i -g @grabantot/react-cli`
 
 ## Usage
+![animation gif](https://media.giphy.com/media/3kx9XtMByFREQBkfEo/giphy.gif)
+
 ```
 Usage: react-cli [options] [command] <path/Component>
 
@@ -20,24 +22,32 @@ Options:
 Commands:
   config <path>  set directory for templates and config file; will be filled with defaults if empty
 
-Config location: '/home/tot/.react-cli/config.json'.
+Global config location: '/home/tot/.react-cli/config.json'.
 
 Examples:
   $ react-cli -fs src/components/views/Primitives/Button
   $ react-cli -csi src/components/views/User/UserCard
-  $ react-cli config path/to/empty/dir/to/put/react-cli-config
+  $ react-cli config path/to/empty/dir/to/put/react-cli-config-and-templates
+```
+
+Config options (`react-cli.config.json`):
+```
+{
+  "useSemicolons": false,
+  "componentExtension": ".js",
+  "styleModuleExtension": ".module.scss"
+}
 ```
 
 ## Todo
-Per project/per directory configs.
-Semicolons option in the config.
+Per directory configs.
+Configurable names for templates.
 
 Commands:
 - mv - move/rename the component and related files, fix imports in the project
 
 Options:
 ```
-  -i, --index       add component export to index.js in its directory
   -p, --prop-types  find props used in render and add propTypes for them
   -r, --redux       connect the component to the redux store
   -S, --story       create storybook story for the component
@@ -55,7 +65,7 @@ No assumptions about the project structure.
 ## Contribute
 It's 2019 and still there is no decent react cli. Yet all the appropriate names for such a package on npm are taken.
 
-Lets fix this.
+Let's fix this.
 Contributions of any kind are welcome: add features, add tests, refactor the code or simply share you thoughts in issues.
 
 ## Related projects
