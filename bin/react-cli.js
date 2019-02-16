@@ -15,7 +15,7 @@ program
   .option('-f, --func', 'create functional component or convert the existing class component to functional')
   .option('-c, --class', 'create class component or convert the existsing functional component to class')
   .option('-s, --style', 'create style module and add import to the component')
-  // .option('-i, --index', 'add component export to index.js in its directory')
+  .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
   // .option('-S, --story', 'create storybook story for the component')
   .arguments('<Component>')
@@ -35,7 +35,8 @@ program
   })
 
 program.on('--help', () => {
-  console.log(`The app stores its cofiguration at '${configPath}'.`)
+  console.log('')
+  console.log(`Config location: '${configPath}'.`)
   console.log('')
   console.log('Examples:')
   console.log('  $ react-cli -fs src/components/views/Primitives/Button')
@@ -63,6 +64,7 @@ function getOptions(options) {
   const {
     componentExtension,
     styleModuleExtension,
+    useSemicolons,
     ...samples
   } = configOptions
   const indexName = 'index.js'
@@ -87,6 +89,7 @@ function getOptions(options) {
     doAddToIndex: options.index || false,
     doCreateStory: options.story || false,
     name,
+    useSemicolons,
     componentPath,
     styleModulePath,
     indexPath,
