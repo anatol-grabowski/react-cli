@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'"
+    "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'",
+    "watch": "tsc -w"
   },
   "bin": {
     "react-cli": "./bin/react-cli.js"
@@ -30,5 +31,10 @@
     "boilerplate",
     "view",
     "container"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^12.0.10",
+    "nodemon": "^1.19.1",
+    "typescript": "^3.5.2"
+  }
 }

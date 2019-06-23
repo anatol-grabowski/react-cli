@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "es6",
+        "allowSyntheticDefaultImports": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": false,
+        "jsx": "react",
+        "outDir": "./build",
+        "declaration": true,
+        "declarationMap": true,
+        "alwaysStrict": true,
+        "watch": true,
+    },
+    "include": [
+        "lib/**/*",
+        "src/**/*",
+        "dummy.ts"
+    ],
+    "exclude": [
+        "build",
+        "node_modules"
+    ],
+}
