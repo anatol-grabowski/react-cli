@@ -1,6 +1,5 @@
-"use strict";
-const Debug = require('debug');
-const { write } = require('./filesys');
+import Debug from 'debug';
+import { write } from './filesys';
 const { updateComponent, updateStyle, updateIndex, } = require('./replacers');
 const debug = Debug('rs-cli');
 function writeSources(opts) {

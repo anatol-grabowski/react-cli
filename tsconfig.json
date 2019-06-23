@@ -16,7 +16,8 @@
     "include": [
         "lib/**/*",
         "src/**/*",
-        "dummy.ts"
+        "dummy.ts",
+        "json.d.ts"
     ],
     "exclude": [
         "build",

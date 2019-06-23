@@ -1,11 +1,15 @@
-const path = require('path')
-const fs = require('fs')
+import path from 'path';
+import fs from 'fs';
 
 function read() {
 
 }
 
-function write(filepath, source, originalSource) {
+/**
+ * TODO: what is `originalSource`?
+ * is `originalSource` an optional variable?
+ */
+export function write(filepath: string, source: any, originalSource?: any) {
   if (source == null) return
   if (source === originalSource) {
     console.log(`'${filepath}' not changed`)
@@ -21,5 +25,3 @@ function write(filepath, source, originalSource) {
   if (originalSource === null) console.log(`'${filepath}' created`)
   else console.log(`'${filepath}' updated`)
 }
-
-exports.write = write

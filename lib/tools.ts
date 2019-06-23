@@ -1,5 +1,5 @@
-const Debug = require('debug')
-const { write } = require('./filesys')
+import Debug from 'debug'
+import { write } from './filesys'
 const {
   updateComponent,
   updateStyle,
@@ -8,7 +8,7 @@ const {
 
 const debug = Debug('rs-cli')
 
-function writeSources(opts) {
+function writeSources(opts: any) {
   const {
     componentPath,
     styleModulePath,
@@ -25,7 +25,7 @@ function writeSources(opts) {
   write(indexPath, indexOutSource, indexSource)
 }
 
-function run(opts) {
+function run(opts: any) {
   const {
     doCreateComponent,
     doCreateStyleModule,

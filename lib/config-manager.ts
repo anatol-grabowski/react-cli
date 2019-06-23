@@ -1,8 +1,9 @@
-const fs = require('fs')
-const path = require('path')
-const Debug = require('debug')
-const { write } = require('./filesys')
-const defaultConfig = require('../templates/react-cli.config.json')
+import fs from 'fs';
+import path from 'path';
+import Debug from 'debug';
+import { write } from 'filesys'
+// @ts-ignore - may cause error, ts don't like fam
+import defaultConfig from '../templates/react-cli.config.json'
 
 const debug = Debug('config-manager')
 const indexName = 'index.js'
@@ -16,7 +17,7 @@ const samplesPathes = {
   config: 'react-cli.config.json',
 }
 
-function readConfigDir(dirpath) {
+function readConfigDir(dirpath: string) {
   const exists = fs.existsSync(dirpath)
   if (!exists) {
     console.log(`Configured config directory '${dirpath}' doesn't exist, using defaults.`)
@@ -33,9 +34,13 @@ function readConfigDir(dirpath) {
   return samples
 }
 
-function writeSamples(dirpath) {
+function writeSamples(dirpath: string) {
   const samplesDirPath = path.join(__dirname, '..', 'templates')
   const samples = readConfigDir(samplesDirPath)
+  /**
+   * 2 arguments supplied, but 3 were required.
+   * original function has 3rd functional optional in TS
+   */
   write(path.join(dirpath, samplesPathes.func), samples.functionalComponentSample)
   write(path.join(dirpath, samplesPathes.class), samples.classComponentSample)
   write(path.join(dirpath, samplesPathes.style), samples.styleModuleSample)
@@ -43,8 +48,13 @@ function writeSamples(dirpath) {
   write(path.join(dirpath, samplesPathes.config), samples.configSample)
 }
 
-function writeConfig(config, path) {
-  const confDir = config.configDirectory
+/**
+ * TODO: WHAT IS `CONFIG`?
+ * @param config The config file, `JSON`?
+ * @param path path to the config file
+ */
+function writeConfig(config: any, path: string) {
+  const confDir: string = config.configDirectory
   const existsConfDir = fs.existsSync(confDir)
   if (!existsConfDir) {
     console.error(`'${confDir}' does not exist`)
@@ -63,7 +73,7 @@ function writeConfig(config, path) {
   write(path, str, 'abc')
 }
 
-function readConfig(configPath) {
+function readConfig(configPath: string) {
   const exists = fs.existsSync(configPath)
   if (!exists) return defaultConfig
   const str = fs.readFileSync(configPath).toString()
@@ -71,7 +81,7 @@ function readConfig(configPath) {
   return config
 }
 
-function readOptions(configPath) {
+function readOptions(configPath: string) {
   debug('readOptions', configPath)
   const config = readConfig(configPath)
   const confDir = config.configDirectory

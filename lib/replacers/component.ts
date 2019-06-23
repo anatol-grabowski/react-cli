@@ -1,10 +1,16 @@
-const assert = require('assert')
-const esprima = require('esprima')
+import assert from 'assert';
+import esprima from 'esprima';
 
-function parseComponent(source) {
+function parseComponent(source: string) {
+  /**
+   * If unsure on what this means, hold CTRL and click an expression
+   */
   const tree = esprima.parseModule(source, { jsx: true, range: true, comment: true })
   const expDecl = tree.body.find(node => node.type === 'ExportDefaultDeclaration')
   assert(expDecl, 'Did not found export default')
+  /**
+   * Type errors in here, hooley dooley
+   */
   const isClassComponent = expDecl.declaration.type === 'ClassDeclaration'
   const isFunctionalComponent = expDecl.declaration.type === 'FunctionDeclaration'
   assert(isClassComponent || isFunctionalComponent, `Expected export default to be a ClassDeclaration or a FunctionDeclaration but found ${expDecl.declaration.type}`)
@@ -22,7 +28,7 @@ function parseComponent(source) {
   }
 }
 
-function convertToClassComponent(source) {
+function convertToClassComponent(source: string) {
   const tree = esprima.parseModule(source, { jsx: true, range: true, comment: true }).body[0]
   const name = tree.id.name
   const propsParam = tree.params.length ? tree.params[0].name : null
