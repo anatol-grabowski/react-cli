@@ -1,10 +1,10 @@
-const esprima = require('esprima')
-const Debug = require('debug')
-const { findExport } = require('./parse-tools')
+import esprima from 'esprima';
+import Debug from 'debug';
+import { findExport } from './parse-tools'
 
 const debug = Debug('index-file')
 
-function updateIndex(opts) {
+export function updateIndex(opts:any) {
   const {
     name,
     doAddToIndex,
@@ -22,7 +22,13 @@ function updateIndex(opts) {
     console.log(`Index already exports '${name}'.`)
     return
   }
-  const insertPos = exps.length ? exps.slice(-1)[0].range[1] : 0
+  /**
+   * `exps.slice` possibly undefined
+   * - exps.length ? ...
+   * + exps !== undefined
+   */
+  //@ts-ignore
+  const insertPos = exps !== undefined ? exps.slice(-1)[0].range[1] : 0
   debug('insertPos', insertPos)
   const before = indexOutSource.substring(0, insertPos)
   const after = indexOutSource.substring(insertPos)
@@ -30,5 +36,3 @@ function updateIndex(opts) {
   indexOutSource = before + exportStr + after
   opts.indexOutSource = indexOutSource
 }
-
-module.exports.updateIndex = updateIndex

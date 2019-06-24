@@ -1,7 +1,7 @@
-function findImport(imports, name) {
+export function findImport(imports:any, name:any) {
   let importSpecifier = null
-  const importDeclaration = imports.find(imp => {
-    return imp.specifiers.find(spec => {
+  const importDeclaration = imports.find((imp:any) => {
+    return imp.specifiers.find((spec:any) => {
       if (spec.local.name !== name) return false
       importSpecifier = spec
       return true
@@ -10,14 +10,14 @@ function findImport(imports, name) {
   return { importDeclaration, importSpecifier }
 }
 
-function findExport(exps, name) {
+export function findExport(exps:any, name:any) {
   let exportSpecifier = null
-  const exportDeclaration = exps.find(exp => {
+  const exportDeclaration = exps.find((exp:any) => {
     if (exp.declaration) {
       const expName = exp.declaration.id.name
       return expName === name
     }
-    return exp.specifiers.find(spec => {
+    return exp.specifiers.find((spec:any) => {
       const expName = spec.exported.name
       if (expName === name) {
         exportSpecifier = spec
@@ -27,9 +27,4 @@ function findExport(exps, name) {
     })
   })
   return { exportDeclaration, exportSpecifier }
-}
-
-module.exports = {
-  findImport,
-  findExport,
 }

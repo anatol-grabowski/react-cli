@@ -1,8 +1,8 @@
-const esprima = require('esprima')
-const path = require('path')
-const { findImport } = require('./parse-tools')
+import esprima from 'esprima';
+import path from 'path';
+import { findImport } from './parse-tools'
 
-function createStyle(opts) {
+function createStyle(opts:any) {
   const {
     name,
     styleModuleSample,
@@ -15,7 +15,7 @@ function createStyle(opts) {
   opts.styleModuleOutSource = styleModuleOutSource
 }
 
-function attachStyle(opts) {
+function attachStyle(opts:any) {
   const {
     styleModulePath,
     useSemicolons,
@@ -32,6 +32,7 @@ function attachStyle(opts) {
     if (location !== importSource) console.log(`Component already has 'styles' imported from '${location}'.`)
     return
   }
+  //@ts-ignore
   const insertPos = imports[imports.length - 1].range[1]
   const before = componentOutSource.substring(0, insertPos)
   const after = componentOutSource.substring(insertPos)
@@ -40,7 +41,7 @@ function attachStyle(opts) {
   opts.componentOutSource = componentOutSource
 }
 
-function updateStyle(opts) {
+export function updateStyle(opts:any) {
   const {
     doCreateStyleModule,
     name,
@@ -52,5 +53,3 @@ function updateStyle(opts) {
   else opts.styleModuleOutSource = styleModuleSource
   attachStyle(opts)
 }
-
-module.exports.updateStyle = updateStyle
