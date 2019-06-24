@@ -1,2 +1,1 @@
-export {};
-//# sourceMappingURL=tools.d.ts.map
+export declare function run(opts: any): void;

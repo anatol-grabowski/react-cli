@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add esprisma
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add -D @types/filesys
 
 PATH: 
   /home/wayne/.cargo/bin:/home/wayne/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/esprisma: Not found
+  Error: https://registry.yarnpkg.com/@types%2ffilesys: Not found
       at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66091:18)
       at Request.self.callback (/usr/share/yarn/lib/cli.js:129590:22)
       at Request.emit (events.js:198:13)
@@ -47,6 +47,7 @@ npm manifest:
       "commander": "^2.19.0",
       "debug": "^4.1.1",
       "esprima": "^4.0.1",
+      "filesys": "^0.0.1",
       "persist-path": "^1.0.2"
     },
     "repository": {
@@ -63,7 +64,10 @@ npm manifest:
     ],
     "devDependencies": {
       "@types/debug": "^4.1.4",
+      "@types/esprima": "^4.0.2",
       "@types/node": "^12.0.10",
+      "@types/react": "^16.8.22",
+      "@types/react-dom": "^16.8.4",
       "nodemon": "^1.19.1",
       "typescript": "^3.5.2"
     }
@@ -82,10 +86,42 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.4.tgz#56eec47706f0fd0b7c694eae2f3172e6b0b769da"
     integrity sha512-D9MyoQFI7iP5VdpEyPZyjjqIJ8Y8EDNQFIFVLOmeg1rI1xiHOChyUPMPRUVfqFCerxfE+yS3vMyj37F6IdtOoQ==
   
+  "@types/esprima@^4.0.2":
+    version "4.0.2"
+    resolved "https://registry.yarnpkg.com/@types/esprima/-/esprima-4.0.2.tgz#0303602d0644086d4802635d7abc9ac0eec57207"
+    integrity sha512-DKqdyuy7Go7ir6iKhZ0jUvgt/h9Q5zb9xS+fLeeXD2QSHv8gC6TimgujBBGfw8dHrpx4+u2HlMv7pkYOOfuUqg==
+    dependencies:
+      "@types/estree" "*"
+  
+  "@types/estree@*":
+    version "0.0.39"
+    resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
+    integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
+  
   "@types/node@^12.0.10":
     version "12.0.10"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.10.tgz#51babf9c7deadd5343620055fc8aff7995c8b031"
     integrity sha512-LcsGbPomWsad6wmMNv7nBLw7YYYyfdYcz6xryKYQhx89c3XXan+8Q6AJ43G5XDIaklaVkK3mE4fCb0SBvMiPSQ==
+  
+  "@types/prop-types@*":
+    version "15.7.1"
+    resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.1.tgz#f1a11e7babb0c3cad68100be381d1e064c68f1f6"
+    integrity sha512-CFzn9idOEpHrgdw8JsoTkaDDyRWk1jrzIV8djzcgpq0y9tG4B4lFT+Nxh52DVpDXV+n4+NPNv7M1Dj5uMp6XFg==
+  
+  "@types/react-dom@^16.8.4":
+    version "16.8.4"
+    resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.4.tgz#7fb7ba368857c7aa0f4e4511c4710ca2c5a12a88"
+    integrity sha512-eIRpEW73DCzPIMaNBDP5pPIpK1KXyZwNgfxiVagb5iGiz6da+9A5hslSX6GAQKdO7SayVCS/Fr2kjqprgAvkfA==
+    dependencies:
+      "@types/react" "*"
+  
+  "@types/react@*", "@types/react@^16.8.22":
+    version "16.8.22"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.22.tgz#7f18bf5ea0c1cad73c46b6b1c804a3ce0eec6d54"
+    integrity sha512-C3O1yVqk4sUXqWyx0wlys76eQfhrQhiDhDlHBrjER76lR2S2Agiid/KpOU9oCqj1dISStscz7xXz1Cg8+sCQeA==
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^2.2.0"
   
   abbrev@1:
     version "1.1.1"
@@ -398,6 +434,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
     integrity sha1-ojD2T1aDEOFJgAmUB5DsmVRbyn4=
   
+  csstype@^2.2.0:
+    version "2.6.5"
+    resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.5.tgz#1cd1dff742ebf4d7c991470ae71e12bb6751e034"
+    integrity sha512-JsTaiksRsel5n7XwqPAfB0l3TFKdpjW/kgAELf9vrb5adGA7UCPLajKK5s3nFrcFm3Rkyp/Qkgl73ENc1UY3cA==
+  
   debug@^2.2.0, debug@^2.3.3:
     version "2.6.9"
     resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -537,6 +578,11 @@ Lockfile:
       regex-not "^1.0.0"
       snapdragon "^0.8.1"
       to-regex "^3.0.1"
+  
+  filesys@^0.0.1:
+    version "0.0.1"
+    resolved "https://registry.yarnpkg.com/filesys/-/filesys-0.0.1.tgz#b2fbc9b587025c7be2067472994b5e605bd12a56"
+    integrity sha512-Utl0BRIQyGBICQ0/lYa2DtmHqZ84uBqZd92xwh9pGojNjLhHCeolJl521H/MxB0VBK5jKM9yZiIDdSMg8krl9A==
   
   fill-range@^4.0.0:
     version "4.0.0"

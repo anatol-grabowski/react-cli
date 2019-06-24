@@ -1,15 +1,23 @@
 import assert from 'assert';
 import esprima from 'esprima';
+// import React from 'react'
+/**
+ * Not sure what do to here
+ * @param source what kind of string is this?
+ */
 function parseComponent(source) {
     /**
-     * If unsure on what this means, hold CTRL and click an expression
+     * What does this do?
      */
     const tree = esprima.parseModule(source, { jsx: true, range: true, comment: true });
+    /**
+     * TODO: remove any and fix type errors
+     * This removes warning of many type errors.
+     * - const expDecl = ...
+     * + const expDecl: any = ...
+     */
     const expDecl = tree.body.find(node => node.type === 'ExportDefaultDeclaration');
     assert(expDecl, 'Did not found export default');
-    /**
-     * Type errors in here, hooley dooley
-     */
     const isClassComponent = expDecl.declaration.type === 'ClassDeclaration';
     const isFunctionalComponent = expDecl.declaration.type === 'FunctionDeclaration';
     assert(isClassComponent || isFunctionalComponent, `Expected export default to be a ClassDeclaration or a FunctionDeclaration but found ${expDecl.declaration.type}`);
@@ -26,11 +34,15 @@ function parseComponent(source) {
         name: cmpDecl.id.name,
     };
 }
+/**
+ * TODO: `remove any`
+ */
 function convertToClassComponent(source) {
     const tree = esprima.parseModule(source, { jsx: true, range: true, comment: true }).body[0];
     const name = tree.id.name;
     const propsParam = tree.params.length ? tree.params[0].name : null;
     const render = tree.body;
+    // @ts-ignore
     let body = source.substring(...render.range);
     const rePropsParam = RegExp(`(\\W)${propsParam}(\\W)`, 'g');
     body = body.replace(rePropsParam, '$1this.props$2');
@@ -42,7 +54,7 @@ function convertToClassComponent(source) {
 function convertToFunctionalComponent(source) {
     const tree = esprima.parseModule(source, { jsx: true, range: true, comment: true }).body[0];
     const name = tree.id.name;
-    const render = tree.body.body.find(node => node.type === 'MethodDefinition' && node.key.name === 'render');
+    const render = tree.body.body.find((node) => node.type === 'MethodDefinition' && node.key.name === 'render');
     let body = source.substring(...render.value.body.range);
     body = body.replace(/^  /gm, '');
     body = body.replace(/(\W)this./g, '$1');

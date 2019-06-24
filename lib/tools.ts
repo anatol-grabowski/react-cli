@@ -25,7 +25,7 @@ function writeSources(opts: any) {
   write(indexPath, indexOutSource, indexSource)
 }
 
-function run(opts: any) {
+export function run(opts: any) {
   const {
     doCreateComponent,
     doCreateStyleModule,
@@ -36,5 +36,3 @@ function run(opts: any) {
   if (doAddToIndex) updateIndex(opts)
   writeSources(opts)
 }
-
-exports.run = run

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Debug from 'debug';
+//@ts-ignore
 import { write } from 'filesys'
 // @ts-ignore - may cause error, ts don't like fam
 import defaultConfig from '../templates/react-cli.config.json'
@@ -53,7 +54,7 @@ function writeSamples(dirpath: string) {
  * @param config The config file, `JSON`?
  * @param path path to the config file
  */
-function writeConfig(config: any, path: string) {
+export function writeConfig(config: any, path: string) {
   const confDir: string = config.configDirectory
   const existsConfDir = fs.existsSync(confDir)
   if (!existsConfDir) {
@@ -81,16 +82,11 @@ function readConfig(configPath: string) {
   return config
 }
 
-function readOptions(configPath: string) {
+export function readOptions(configPath: string) {
   debug('readOptions', configPath)
   const config = readConfig(configPath)
   const confDir = config.configDirectory
   const { configSample, ...samples } = readConfigDir(confDir)
   const options = JSON.parse(configSample)
   return { ...samples, ...options }
-}
-
-module.exports = {
-  writeConfig,
-  readOptions,
 }

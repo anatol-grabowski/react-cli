@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-const commander = require('commander')
-const path = require('path')
-const fs = require('fs')
-const packageJson = require('../package.json')
+import commander from 'commander';
+import path from 'path';
+import fs from 'fs';
+// @ts-ignore
+import packageJson from '../package.json';
 const configPath = require('persist-path')('react-cli/config.json')
-const { run } = require('../lib/tools')
-const { readOptions, writeConfig } = require('../lib/config-manager')
+import { run } from '../lib/tools'
+import { readOptions, writeConfig } from '../lib/config-manager'
 
 const program = commander
   .version(packageJson.version)

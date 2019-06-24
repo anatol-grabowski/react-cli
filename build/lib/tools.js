@@ -8,7 +8,7 @@ function writeSources(opts) {
     write(styleModulePath, styleModuleOutSource, styleModuleSource);
     write(indexPath, indexOutSource, indexSource);
 }
-function run(opts) {
+export function run(opts) {
     const { doCreateComponent, doCreateStyleModule, doAddToIndex, } = opts;
     if (doCreateComponent)
         updateComponent(opts);
@@ -18,4 +18,3 @@ function run(opts) {
         updateIndex(opts);
     writeSources(opts);
 }
-exports.run = run;
