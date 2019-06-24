@@ -3,14 +3,14 @@
   "preferGlobal": true,
   "version": "1.2.1",
   "description": "Automate components management routine",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'",
     "watch": "tsc -w"
   },
   "bin": {
-    "react-cli": "./bin/react-cli.js"
+    "react-cli": "./build/bin/react-cli.js"
   },
   "author": "",
   "license": "ISC",

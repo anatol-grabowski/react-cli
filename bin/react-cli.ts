@@ -45,7 +45,7 @@ program.on('--help', () => {
   console.log('  $ react-cli config path/to/empty/dir/to/put/react-cli-config')
 })
 
-function validateName(opts) {
+function validateName(opts: any) {
   const { doCreateComponent, name } = opts
   if (!doCreateComponent) return true
   const reValidname = /^[A-Z]/
@@ -53,7 +53,7 @@ function validateName(opts) {
   return isValidname
 }
 
-function getOptions(options) {
+function getOptions(options: any) {
   if (!options.func && !options.class && !options.style && !options.index && !options.story) {
     console.error('no options specified')
     return

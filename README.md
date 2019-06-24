@@ -1,5 +1,10 @@
 # react-cli
 
+```
+// TODO: Use rollup to export module
+// DO NOT PUSH TO MASTER UNTIL ROLLUP WORKS
+```
+
 ## Installation
 `npm i -g @grabantot/react-cli`
 
