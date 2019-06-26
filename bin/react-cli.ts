@@ -3,12 +3,14 @@
 import commander from 'commander';
 import path from 'path';
 import fs from 'fs';
-// @ts-ignore
 import packageJson from '../package.json';
-const configPath = require('persist-path')('react-cli/config.json')
+/** I added the *.d.ts file, why an error in vscode? */
+// @ts-ignore
+import persistPath from 'persist-path' //'react-cli/config.json'
 import { run } from '../lib/tools'
 import { readOptions, writeConfig } from '../lib/config-manager'
 
+const configPath = persistPath('react-cli/config.json')
 const program = commander
   .version(packageJson.version)
 program
@@ -18,7 +20,7 @@ program
   .option('-s, --style', `create style module and add 'import styles' to the component`)
   .option('-i, --index', 'add component export to index.js in its directory')
   // .option('-p, --prop-types', 'find props used in render and add propTypes for them')
-  // .option('-S, --story', 'create storybook story for the component')
+  // .option('-S, --story', 'create storybook story for the component') // What a feature!
   .arguments('<path/Component>')
   .action((_, cmd) => {
     const opts = getOptions(cmd)
