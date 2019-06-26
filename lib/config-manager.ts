@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import Debug from 'debug';
-//@ts-ignore
-import { write } from 'filesys'
+// @ts-ignore
+import Filesys from 'filesys'
 // @ts-ignore - may cause error, ts don't like fam
 import defaultConfig from '../templates/react-cli.config.json'
 
+const { write } =  Filesys
 const debug = Debug('config-manager')
 const indexName = 'index.js'
 
