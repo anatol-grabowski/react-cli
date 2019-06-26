@@ -7,20 +7,15 @@
         "noImplicitAny": true,
         "noImplicitReturns": false,
         "jsx": "react",
-        "outDir": "./build",
         "declaration": true,
         "alwaysStrict": true,
         "watch": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
     },
     "include": [
-        "bin/**/*",
         "lib/**/*",
-        "src/**/*",
-        "dummy.ts",
-        "json.d.ts"
     ],
     "exclude": [
         "build",

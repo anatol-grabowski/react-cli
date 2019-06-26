@@ -1,3 +1,6 @@
+/**
+ * does this need to be here since it gets run on different os'?
+ */
 // #!/usr/bin/env node
 
 import commander from 'commander';
