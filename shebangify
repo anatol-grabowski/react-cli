@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+/**
+ * Typescript compiler does not allow `#!/usr/bin/env node`
+ */
+
+// Usage:       ./shebangify FILE
+// 
+// Description: Adds a Node.js shebang to FILE, as per 
+//     http://stackoverflow.com/a/25299690/82216 but with added error handling.
+// Authorship:  Sam Pablo Kuper, 200_success (see
+//     http://codereview.stackexchange.com/q/59964/51143 )
+// License:     CC-BY-SA 3.0.
+// Repository:  https://gist.github.com/sampablokuper/b8fa8e49ae03a7ec290f
+
+var fs = require('fs');
+
+var path = process.argv[2];
+var data = "#!/usr/bin/env node\n\n";
+if (!fs.existsSync(path)) {
+    console.log("Invalid path: " + path);
+    process.exit(1);
+}
+try {
+    data += fs.readFileSync(path);
+    fs.writeFileSync(path, data);
+} catch (err) {
+    console.log("Problem reading or writing " + path + " : " + err.message)
+    process.exit(1);
+}

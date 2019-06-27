@@ -11,8 +11,47 @@ import copy from 'rollup-plugin-copy'
  * @type RollupOptions
  */
 const rollup = [
+    // {
+    //     input: "index.ts",
+    //     output: [
+    //         {
+    //             file: pkg.main,
+    //             format: "cjs",
+    //             exports: "named",
+    //             sourcemap: true
+    //         },
+    //         {
+    //             file: pkg.module,
+    //             format: "es",
+    //             exports: "named",
+    //             sourcemap: true
+    //         }
+    //     ],
+    //     plugins: [
+    //         json(),
+    //         external(),
+    //         resolve(),
+    //         typescript({
+    //             rollupCommonJSResolveHack: true,
+    //             exclude: [
+    //                 "**/__tests__/**",
+    //                 "**/templates/**"
+    //             ],
+    //             clean: true,
+    //             typescript: require('typescript')
+    //         }),
+    //         commonjs({
+    //             include: ["node_modules/**"],
+    //         }),
+    //         copy({
+    //             targets: [
+    //                 {src: 'templates/**', dest: 'build/templates'}
+    //             ]
+    //         })
+    //     ]
+    // },
     {
-        input: "index.ts",
+        input: 'bin/react-cli.ts',
         output: [
             {
                 file: pkg.main,

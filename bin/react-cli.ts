@@ -1,5 +1,6 @@
 /**
  * does this need to be here since it gets run on different os'?
+ * TODO: export as a single export default.
  */
 // #!/usr/bin/env node
 
@@ -7,12 +8,12 @@ import commander from 'commander';
 import path from 'path';
 import fs from 'fs';
 // @ts-ignore
-import packageJson from './package.json';
+import packageJson from '../package.json';
 /** I added the *.d.ts file, why an error in vscode? */
 // @ts-ignore
 import persistPath from 'persist-path' //'react-cli/config.json'
-import { run } from './lib/tools'
-import { readOptions, writeConfig } from './lib/config-manager'
+import { run } from '../lib/tools'
+import { readOptions, writeConfig } from '../lib/config-manager'
 
 const configPath = persistPath('react-cli/config.json')
 const program = commander
