@@ -1,6 +1,5 @@
 /**
  * does this need to be here since it gets run on different os'?
- * TODO: export as a single export default.
  */
 // #!/usr/bin/env node
 

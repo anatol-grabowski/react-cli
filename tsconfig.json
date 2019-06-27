@@ -7,18 +7,19 @@
         "noImplicitAny": true,
         "noImplicitReturns": false,
         "jsx": "react",
-        "declaration": true,
         "alwaysStrict": true,
-        "watch": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
+        "outDir": "build"
     },
     "include": [
+        "bin/**/*",
         "lib/**/*",
     ],
     "exclude": [
         "build",
-        "node_modules"
+        "node_modules",
+        "templates"
     ],
 }

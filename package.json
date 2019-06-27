@@ -4,14 +4,13 @@
   "version": "1.2.1",
   "description": "Automate components management routine",
   "main": "build/index.js",
-  "types": "build/index.d.ts",
-  "module": "build/index.es.js",
-  "jsnext:main": "build/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'",
-    "watch": "tsc -w",
-    "compile": "tsc",
+    "watch": "tsc -w && yarn append-shebang && yarn copy-templates",
+    "build": " tsc && yarn append-shebang && yarn copy-templates",
+    "append-shebang": "./shebangify build/bin/react-cli.js ; chmod +x build/bin/react-cli.js",
+    "copy-templates":"cp -R --remove-destination templates/ build",
     "bundle": "rollup -c"
   },
   "bin": {
@@ -20,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^2.19.0",
+    "commander": "^2.20.0",
     "debug": "^4.1.1",
     "esprima": "^4.0.1",
     "filesys": "^0.0.1",
@@ -30,6 +29,9 @@
     "type": "git",
     "url": "git+https://github.com/grabantot/react-cli.git"
   },
+  "types": "build/index.d.ts",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
   "keywords": [
     "react",
     "component",
@@ -39,6 +41,7 @@
     "container"
   ],
   "devDependencies": {
+    "@types/commander": "^2.12.2",
     "@types/debug": "^4.1.4",
     "@types/esprima": "^4.0.2",
     "@types/node": "^12.0.10",

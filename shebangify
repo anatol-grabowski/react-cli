@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Typescript compiler does not allow `#!/usr/bin/env node`
+ * Typescript compiler does not allow `#!/usr/bin/env node`,
+ * so this is the workaround.
+ * 
+ * Stack Overflow: `https://stackoverflow.com/a/25299690`
  */
 
 // Usage:       ./shebangify FILE

@@ -1,17 +1,16 @@
 # react-cli
 
-```
-// TODO: Use rollup to export module
-// DO NOT PUSH TO MASTER UNTIL ROLLUP WORKS
-```
-
 ## Installation
 `npm i -g @grabantot/react-cli`
+
+or
+
+`yarn global add @grabantot/react-cli`
 
 ## Usage
 ![animation gif](https://media.giphy.com/media/3kx9XtMByFREQBkfEo/giphy.gif)
 
-```
+``` bash
 Usage: react-cli [options] [command] <path/Component>
 
 Manage react components and related files
@@ -36,7 +35,8 @@ Examples:
 ```
 
 Config options (`react-cli.config.json`):
-```
+
+``` json
 {
   "useSemicolons": false,
   "componentExtension": ".js",
@@ -52,12 +52,15 @@ Commands:
 - mv - move/rename the component and related files, fix imports in the project
 
 Options:
-```
-  -p, --prop-types  find props used in render and add propTypes for them
-  -r, --redux       connect the component to the redux store
-  -S, --story       create storybook story for the component
-  -P, --pure        make the component pure (use recompose's pure for functional components)
-  -t, --test        add tests for the component
+
+``` javascript
+  -p, --prop-types  // find props used in render and
+                    // add propTypes for them
+  -r, --redux       // connect the component to the redux store
+  -S, --story       // create storybook story for the component
+  -P, --pure        // make the component pure
+                    // (use recompose's pure for functional components)
+  -t, --test        // add tests for the component
 ```
 
 ## Assumptions
@@ -67,11 +70,30 @@ Options:
 
 No assumptions about the project structure.
 
+## Developing
+
+#### Quick setup script
+``` bash
+git clone https://github.com/grabantot/react-cli.git
+cd react-cli
+yarn
+```
+
+#### Running in dev
+`yarn compile` - compiles using the TS compiler in watch mode with the current config.
+
+`yarn watch` - is the same as above but in watch mode.
+
+`yarn [options] [command] <path/Component>` - Uses the cli from the build folder to execute commands
+
 ## Contribute
+
 It's 2019 and still there is no decent react cli. Yet all the appropriate names for such a package on npm are taken.
 
 Let's fix this.
 Contributions of any kind are welcome: add features, add tests, refactor the code or simply share you thoughts in issues.
+
+Recently converted to Typescript, there are still many `any`'s and `@tsignore`'s, which we'll be fixing as we go. It should still work as we've just added types and changed co
 
 ## Related projects
 - [reacli](https://www.npmjs.com/package/reacli) - the most similar project
