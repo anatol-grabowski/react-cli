@@ -12,27 +12,29 @@ they got the CLI pretty close to perfect.
 
 It would be great for people coming from React to Ng and vice-versa. 
 
+`react-cli` could even be shortened to `react`, as React don't have a cli.
+
 ``` bash
-react-cli generate component [options] components/friendly-button
+react generate component [options] components/friendly-button
 # or
-react-cli g c [options] components/friendly-button
+react g c [options] components/friendly-button
+
+react convert components/friendly-button class|function|pure
+# or
+react c components/friendly-button [c|f|p]
 ```
 ## Config ideas
 
-Allow project configs in
+Allow project configs in the following formats:
 + package.json
 + *.json
 + *.js
 + *.yml, *.yaml
-+
-
-Might be worth extending these.
-
-I think doing `[class|function|pure]Component: { setting: value, ... }` is teh way to go.
-That way all components have global settings, and can also have unique ones to override global if required.
 
 ``` jsx
 {
+    "templateName": string,
+    "defaultTemplate": boolean,
     // components. Set global defaults or override at lower level, such as `classComponent:{ setting: value}`
     "components":{
         default: "class"|"function"|"pure", 
@@ -44,20 +46,16 @@ That way all components have global settings, and can also have unique ones to o
     }
     // class component
     "classComponent": {
-        functions: "const"|"function",
         lifecycleMethods: boolean,
     }    
     // functional component
     "functionComponent": {
         type: "const"|"function",
-        functions: "const"|"function",
-        useState: boolean,
-        useEffect: boolean,
+        useHooks: boolean,
     }
     // pure component
     "pureComponent": {
         type: "const"|"function",
-        functions: "const"|"function"
     }
     // formatting - plugins from ESlint & Prettier 
     "formatPlugins": ("eslint"|"prettier")[]
@@ -67,7 +65,8 @@ That way all components have global settings, and can also have unique ones to o
     "templates": string[],          // any amount of directories
     "srcDirectory": "string",       // commonly ["src", "lib"]
 
-    // file extensions
+    "language": "js"|"ts"|"javascript"|"typescript"
+    // file extensions - overidden by language flag
     "componentExtension": string,   // commonly [".js"|".tsx"]
     "indexExtension": string,       // commonly [".js"|".ts"]   
     "styleModuleExtension": string, // commonly [".module.css"|".module.scss"|".module.sass"]
@@ -75,6 +74,5 @@ That way all components have global settings, and can also have unique ones to o
     
     // modules
     "importType": [["require"|"es5"] | ["import"|"es6"|"commonjs"]] // require() or import
-    "language": "javascript"|"typescript"
 }
 ```
