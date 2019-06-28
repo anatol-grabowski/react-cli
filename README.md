@@ -80,11 +80,11 @@ yarn
 ```
 
 #### Running in dev
-`yarn compile` - compiles using the TS compiler in watch mode with the current config.
+`yarn compile` - compiles using the TS compiler with the current config.
 
-`yarn watch` - is the same as above but in watch mode.
+`yarn watch` - is the same as above but uses Nodemon to watch changes.
 
-`yarn [options] [command] <path/Component>` - Uses the cli from the build folder to execute commands
+`yarn [options] [command] <path/Component>` - Uses the cli from the build folder to execute commands.
 
 ## Contribute
 

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import childProcess from 'child_process';
 import commander from 'commander';
- 
+  
 const program = commander
   // .version(packageJson.version)
 program
