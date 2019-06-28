@@ -1,9 +1,7 @@
 /**
- * does this need to be here since it gets run on different os'?
+ * `yarn append-shebang` will append the shebang on `yarn compile` and `yarn watch`
  */
-// #!/usr/bin/env node
-
-import commander from 'commander';
+import commander from 'commander';  
 import path from 'path';
 import fs from 'fs';
 // @ts-ignore

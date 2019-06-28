@@ -8,10 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'",
     "watch": "tsc -w && yarn append-shebang && yarn copy-templates",
-    "build": " tsc && yarn append-shebang && yarn copy-templates",
+    "compile": " tsc && yarn append-shebang && yarn copy-templates",
     "append-shebang": "./shebangify build/bin/react-cli.js ; chmod +x build/bin/react-cli.js",
     "copy-templates":"cp -R --remove-destination templates/ build",
-    "bundle": "rollup -c"
+    "bundle": "rollup -c",
+    "react-cli": "build/bin/react-cli.js"
   },
   "bin": {
     "react-cli": "./build/bin/react-cli.js"
@@ -29,9 +30,6 @@
     "type": "git",
     "url": "git+https://github.com/grabantot/react-cli.git"
   },
-  "types": "build/index.d.ts",
-  "module": "build/index.es.js",
-  "jsnext:main": "build/index.es.js",
   "keywords": [
     "react",
     "component",
@@ -41,7 +39,6 @@
     "container"
   ],
   "devDependencies": {
-    "@types/commander": "^2.12.2",
     "@types/debug": "^4.1.4",
     "@types/esprima": "^4.0.2",
     "@types/node": "^12.0.10",
