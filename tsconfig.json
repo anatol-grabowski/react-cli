@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "esnext",
         "module": "commonjs",
         "allowSyntheticDefaultImports": true,
         "strictNullChecks": true,
@@ -12,7 +12,7 @@
         "esModuleInterop": true,
         "moduleResolution": "node",
         "outDir": "build",
-        "removeComments": true
+        "removeComments": true,
     },
     "include": [
         "bin/**/*",

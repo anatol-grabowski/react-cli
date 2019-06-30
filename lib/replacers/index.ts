@@ -1,9 +1,3 @@
-const { updateComponent } = require('./component')
-const { updateStyle } = require('./style-module')
-const { updateIndex } = require('./index-file')
-
-module.exports = {
-  updateComponent,
-  updateStyle,
-  updateIndex,
-}
+export * from './component'
+export * from './index-file'
+export * from './style-module'

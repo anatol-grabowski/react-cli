@@ -1,14 +1,21 @@
 # Notes (Wayne)
 
+## Todo
 + create more templates
 + dynamically generate templates based on flags
 + config file in project directory
++ vscode extension to detect config file for intellisense
+
+### next steps
++ ??? rest...
 
 ## `react-cli` design architecture
 
 I feel like making this similar to Angular might be the way to go.
 Although Angular as a framework sucks balls,
 they got the CLI pretty close to perfect.
+
+`react [verb|action] [noun|object] [option/s] [directory]`
 
 It would be great for people coming from React to Ng and vice-versa. 
 
@@ -19,9 +26,19 @@ react generate component [options] components/friendly-button
 # or
 react g c [options] components/friendly-button
 
-react convert components/friendly-button class|function|pure
+react convert component components/friendly-button class|function|pure
 # or
-react c components/friendly-button [c|f|p]
+react c c components/friendly-button c|f|p
+```
+
+Check out these options.
+``` bash
+react \
+[generate component|config] \ 
+[convert component|functions]
+[options] \
+<filepath>
+
 ```
 ## Config ideas
 
@@ -30,6 +47,7 @@ Allow project configs in the following formats:
 + *.json
 + *.js
 + *.yml, *.yaml
++ .reactclirc
 
 ``` jsx
 {
@@ -64,12 +82,21 @@ Allow project configs in the following formats:
     // files & folders
     "templates": string[],          // any amount of directories
     "srcDirectory": "string",       // commonly ["src", "lib"]
+    "projectStructure": [           // predefine what your structure normally looks like for poject starts
+        "folder1",
+        "folder2",
+        "folder3": [
+            "folder4",
+            "folder5",
+        ]
+    ],
 
-    "language": "js"|"ts"|"javascript"|"typescript"
+    "reactLanguage": "js"|"ts"|"javascript"|"typescript",
+    "styleLanguage": "...",
     // file extensions - overidden by language flag
     "componentExtension": string,   // commonly [".js"|".tsx"]
     "indexExtension": string,       // commonly [".js"|".ts"]   
-    "styleModuleExtension": string, // commonly [".module.css"|".module.scss"|".module.sass"]
+    "styleModuleExtension": string, // commonly [".module*"] equivelant to "*.module.css"
     "styleExtension": string,       // commonly [".css"|".scss"|".sass"]
     
     // modules

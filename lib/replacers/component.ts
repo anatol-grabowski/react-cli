@@ -1,6 +1,7 @@
 import assert from 'assert';
-import esprima from 'esprima';
-
+import {parseModule} from 'esprima';
+import { ExportDefaultDeclaration } from 'estree';
+ 
 // import React from 'react'
 
 /**
@@ -11,7 +12,7 @@ function parseComponent(source: any) {
   /**
    * What does this do?
    */
-  const tree = esprima.parseModule(source, { jsx: true, range: true, comment: true })
+  const tree = parseModule(source, { jsx: true, range: true, comment: true })
   /**
    * TODO: remove any and fix type errors
    * This removes warning of many type errors.
@@ -19,11 +20,13 @@ function parseComponent(source: any) {
    * + const expDecl: any = ...
    */
   const expDecl:any = tree.body.find(node => node.type === 'ExportDefaultDeclaration')
+  console.log(expDecl)
   assert(expDecl, 'Did not found export default')
   const isClassComponent = expDecl.declaration.type === 'ClassDeclaration'
   const isFunctionalComponent = expDecl.declaration.type === 'FunctionDeclaration'
   assert(isClassComponent || isFunctionalComponent, `Expected export default to be a ClassDeclaration or a FunctionDeclaration but found ${expDecl.declaration.type}`)
   const cmpDecl = expDecl.declaration
+  console.log(cmpDecl)
   const beforeComponent = source.substring(0, cmpDecl.range[0])
   const component = source.substring(...cmpDecl.range)
   const afterComponent = source.substring(cmpDecl.range[1])
@@ -41,7 +44,7 @@ function parseComponent(source: any) {
  * TODO: `remove any`
  */
 function convertToClassComponent(source: string) {
-  const tree:any = esprima.parseModule(source, { jsx: true, range: true, comment: true }).body[0]
+  const tree:any = parseModule(source, { jsx: true, range: true, comment: true }).body[0]
   const name = tree.id.name
   const propsParam = tree.params.length ? tree.params[0].name : null
   const render:any = tree.body
@@ -56,7 +59,7 @@ function convertToClassComponent(source: string) {
 }
 
 function convertToFunctionalComponent(source:any) {
-  const tree:any = esprima.parseModule(source, { jsx: true, range: true, comment: true }).body[0]
+  const tree:any = parseModule(source, { jsx: true, range: true, comment: true }).body[0]
   const name = tree.id.name
   const render = tree.body.body.find((node:any) => node.type === 'MethodDefinition' && node.key.name === 'render')
   let body = source.substring(...render.value.body.range)
@@ -66,7 +69,7 @@ function convertToFunctionalComponent(source:any) {
   return func
 }
 
-function updateComponent(opts: any) {
+export function updateComponent(opts: any) {
   const {
     doCreateComponent,
     doCreateFunctionalComponent,
@@ -103,5 +106,3 @@ function updateComponent(opts: any) {
   componentOutSource = componentOutSource.replace(reName, name)
   opts.componentOutSource = componentOutSource
 }
-
-module.exports.updateComponent = updateComponent

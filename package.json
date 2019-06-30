@@ -7,10 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'",
-    "watch": "nodemon -e ts,tsx,js,jsx --ignore build --exec \"tsc && yarn append-shebang && yarn copy-templates\"",
+    "watch": "nodemon -e ts,tsx,js,jsx --ignore build types --exec \"tsc && yarn append-shebang && yarn copy-templates\"",
     "compile": " tsc && yarn append-shebang && yarn copy-templates",
     "append-shebang": "./shebangify build/bin/react-cli.js ; chmod +x build/bin/react-cli.js",
-    "copy-templates":"cp -R --remove-destination templates/ build",
+    "copy-templates": "cp -R --remove-destination templates/ build",
     "bundle": "rollup -c",
     "react-cli": "build/bin/react-cli.js"
   },
@@ -41,9 +41,11 @@
   "devDependencies": {
     "@types/debug": "^4.1.4",
     "@types/esprima": "^4.0.2",
+    "@types/jest": "^24.0.15",
     "@types/node": "^12.0.10",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "rollup": "^1.16.2",
     "rollup-plugin-commonjs": "^10.0.0",

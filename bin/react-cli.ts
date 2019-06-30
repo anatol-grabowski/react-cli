@@ -17,7 +17,7 @@ const program = commander
   .version(packageJson.version)
 program
   .description('Manage react components and related files')
-  .option('-f, --func', 'create functional component or convert the existing class component to functional')
+  .option('-f, --funct', 'create functional component or convert the existing class component to functional')
   .option('-c, --class', 'create class component or convert the existsing functional component to class')
   .option('-s, --style', `create style module and add 'import styles' to the component`)
   .option('-i, --index', 'add component export to index.js in its directory')
@@ -27,7 +27,7 @@ program
   .action((_, cmd) => {
     const opts = getOptions(cmd)
     if (!opts) return
-    // console.log(opts)
+    console.log(opts)
     run(opts)
   })
 program
@@ -87,7 +87,7 @@ function getOptions(options: any) {
   const styleModuleSource = doesStyleModuleExist ? fs.readFileSync(styleModulePath).toString() : null
   const indexSource = doesIndexExist ? fs.readFileSync(indexPath).toString() : null
 
-  const opts = {
+  const opts: Opts = {
     doCreateComponent: options.func || options.class || false,
     doCreateFunctionalComponent: options.func || false,
     doCreateClassComponent: options.class || false,
@@ -115,3 +115,34 @@ function getOptions(options: any) {
 
 const parsed = program.parse(process.argv)
 if (parsed.args.length === 0) program.help()
+
+export interface Opts extends ReactCLIOptions, ComponentSamples, ConfigOptions {
+  name: string;
+  componentPath: string;
+  styleModulePath: string;
+  indexPath: string;
+  componentSource: null;
+  styleModuleSource: null;
+  indexSource: null;
+}
+  // from config, are these in options?
+  // "componentExtension": ".js",
+  // "styleModuleExtension": ".module.scss"
+
+export interface ConfigOptions {
+  useSemicolons: boolean;
+}
+export interface ReactCLIOptions {
+  doCreateComponent: boolean;
+  doCreateFunctionalComponent: boolean;
+  doCreateClassComponent: boolean;
+  doCreateStyleModule: boolean;
+  doAddToIndex: boolean;
+  doCreateStory: boolean;
+}
+export interface ComponentSamples {
+  functionalComponentExample: string;
+  classComponentSample: string;
+  styleModuleSample: string;
+  indexSample: string;
+}
