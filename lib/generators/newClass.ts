@@ -3,7 +3,6 @@
 
 import assert from 'assert';
 import { parseModule, Program } from 'esprima';
-import { ExportDefaultDeclaration, ClassExpression } from 'estree';
 
 export class BaseConvertor {
     tree: Program
@@ -63,8 +62,6 @@ export class ComponentConvertor extends BaseConvertor {
     }
 }
 
-
-
 export class StyleConvertor extends BaseConvertor {
 
 }
@@ -86,5 +83,27 @@ export class Config {
 }
 
 export interface ConfigOptions {
+    
+}
+
+export class BaseHandler {
+    name: string;
+    options: ConfigOptions
+    body: string;
+}
+
+export class ComponentHandler extends BaseHandler {
+    // default options in here
+
+    constructor(options: ConfigOptions){
+        super()
+        const defaultConfig = {}
+        this.options = {
+            ...defaultConfig,
+            ...options,
+        }
+    }
+    public convertTo(name: 'class'|'function'|'pure') {}
+    public () {}
 
 }

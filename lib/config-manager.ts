@@ -1,6 +1,6 @@
 import {join} from 'path';
 import Debug from 'debug';
-import { write, readFileSync, existsSync, readdirSync, writeFile, writeFileSync, statSync } from 'fs'
+import { readFileSync, existsSync, readdirSync, writeFile, writeFileSync, statSync } from 'fs'
 import defaultConfig from '../templates/react-cli.config.json'
 
 const debug = Debug('config-manager')
