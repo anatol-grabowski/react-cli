@@ -59,7 +59,7 @@ export function writeConfig(config: any, path: string) {
     writeSamples(confDir)
   }
   const str = JSON.stringify(config, null, 2)
-  write(path, str, 'abc')
+  writeFileSync(path, str, 'abc')
 }
 
 function readConfig(configPath: string) {

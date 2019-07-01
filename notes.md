@@ -121,8 +121,8 @@ import 'ComponentConvertor' from './Convertor'
 
 const newSource = new Convertor({}).from('sourceCode').to('class|function|')
 
-+ styles, 
 ```
++ styles, 
 
 Well, what parts do we have?
 + Commander descriptions, options, arguments, 

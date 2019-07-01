@@ -8,7 +8,7 @@ import { ExportDefaultDeclaration } from 'estree';
  * Not sure what do to here
  * @param source what kind of string is this?
  */
-function parseComponent(source: any) {
+function parseComponent(source: string) {
   /**
    * What does this do?
    */
@@ -28,7 +28,7 @@ function parseComponent(source: any) {
   const cmpDecl = expDecl.declaration
   console.log(cmpDecl)
   const beforeComponent = source.substring(0, cmpDecl.range[0])
-  const component = source.substring(...cmpDecl.range)
+  const component = source.substring(cmpDecl.range[0], cmpDecl.range[1])
   const afterComponent = source.substring(cmpDecl.range[1])
   return {
     isClassComponent,
