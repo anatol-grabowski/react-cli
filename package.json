@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-readme": "node ./scripts/update-usage-in-readme.js README.md 'node ./bin/react-cli.js' -r '(## Usage\\n```\\n)([\\w\\W]*?\\n)(```\\n)'",
-    "watch": "nodemon -e ts,tsx,js,jsx --ignore build types --exec \"tsc && yarn append-shebang && yarn copy-templates\"",
+    "watch": "nodemon -e ts,tsx,js,jsx --ignore build --exec \"tsc && yarn append-shebang && yarn copy-templates\"",
     "compile": " tsc && yarn append-shebang && yarn copy-templates",
     "append-shebang": "./shebangify build/bin/react-cli.js ; chmod +x build/bin/react-cli.js",
     "copy-templates": "cp -R --remove-destination templates/ build",

@@ -103,3 +103,28 @@ Allow project configs in the following formats:
     "importType": [["require"|"es5"] | ["import"|"es6"|"commonjs"]] // require() or import
 }
 ```
+
+## Architecture
+
+What does it do now?
++ Component conversions
++ Config creator
++ copies templates into folders, with options
+
+
+How do will the this CLi work at a high level?
+
+
+What might the APi be?
+``` typescript
+import 'ComponentConvertor' from './Convertor'
+
+const newSource = new Convertor({}).from('sourceCode').to('class|function|')
+
++ styles, 
+```
+
+Well, what parts do we have?
++ Commander descriptions, options, arguments, 
++ Utitilities such as name validation, 
++ CLI options, paths, sources, 

@@ -1,10 +1,10 @@
 import Debug from 'debug'
 import { write } from './filesys'
-const {
+import  {
   updateComponent,
   updateStyle,
   updateIndex,
-} = require('./replacers')
+} from './replacers'
 
 const debug = Debug('rs-cli')
 

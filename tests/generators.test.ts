@@ -6,9 +6,8 @@
  */
 
 import { join } from 'path'
-import { stdio, MockReadable } from 'stdio-mock'
-import { Jest } from '@jest/environment';
-const exec = join(__dirname, '..', 'build', 'bin', 'react-cli');
+import { stdio } from 'stdio-mock'
+const CLI = join(__dirname, '..', 'build', 'bin', 'react-cli');
 
 const { stdin, stdout, stderr } = stdio()
 
