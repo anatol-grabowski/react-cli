@@ -83,7 +83,7 @@ export class Config {
 }
 
 export interface ConfigOptions {
-    
+
 }
 
 export class BaseHandler {
@@ -91,6 +91,9 @@ export class BaseHandler {
     options: ConfigOptions
     body: string;
 }
+// class for parsing in
+// class for parsing through
+// class for parsing out
 
 export class ComponentHandler extends BaseHandler {
     // default options in here
@@ -103,7 +106,7 @@ export class ComponentHandler extends BaseHandler {
             ...options,
         }
     }
-    public convertTo(name: 'class'|'function'|'pure') {}
+    public convertToClass() {}
     public () {}
 
 }
